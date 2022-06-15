@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mk.ad.mapper.AdminSspAccountMapper">
+  <resultMap id="BaseResultMap" type="com.mk.ad.entity.AdminSspAccount">
+    <id column="id" jdbcType="BIGINT" property="id" />
+    <result column="user_id" jdbcType="VARCHAR" property="userId" />
+    <result column="company_name" jdbcType="VARCHAR" property="companyName" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+    <result column="company_type" jdbcType="INTEGER" property="companyType" />
+    <result column="license_number" jdbcType="VARCHAR" property="licenseNumber" />
+    <result column="organization_code" jdbcType="VARCHAR" property="organizationCode" />
+    <result column="shareholder" jdbcType="VARCHAR" property="shareholder" />
+    <result column="license_image" jdbcType="VARCHAR" property="licenseImage" />
+    <result column="docking_way" jdbcType="INTEGER" property="dockingWay" />
+    <result column="settlement_way" jdbcType="INTEGER" property="settlementWay" />
+    <result column="profit" jdbcType="VARCHAR" property="profit" />
+    <result column="payee" jdbcType="VARCHAR" property="payee" />
+    <result column="bank_deposit" jdbcType="VARCHAR" property="bankDeposit" />
+    <result column="bank_account" jdbcType="VARCHAR" property="bankAccount" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="last_time" jdbcType="TIMESTAMP" property="lastTime" />
+    <result column="is_deleted" jdbcType="INTEGER" property="isDeleted" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, user_id, company_name, `status`, company_type, license_number, organization_code, 
+    shareholder, license_image, docking_way, settlement_way, profit, payee, bank_deposit, 
+    bank_account, create_time, update_time, last_time, is_deleted
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from admin_ssp_account
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from admin_ssp_account
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="com.mk.ad.entity.AdminSspAccount">
+    insert into admin_ssp_account (id, user_id, company_name, 
+      `status`, company_type, license_number, 
+      organization_code, shareholder, license_image, 
+      docking_way, settlement_way, profit, 
+      payee, bank_deposit, bank_account, 
+      create_time, update_time, last_time, 
+      is_deleted)
+    values (#{id,jdbcType=BIGINT}, #{userId,jdbcType=VARCHAR}, #{companyName,jdbcType=VARCHAR}, 
+      #{status,jdbcType=INTEGER}, #{companyType,jdbcType=INTEGER}, #{licenseNumber,jdbcType=VARCHAR}, 
+      #{organizationCode,jdbcType=VARCHAR}, #{shareholder,jdbcType=VARCHAR}, #{licenseImage,jdbcType=VARCHAR}, 
+      #{dockingWay,jdbcType=INTEGER}, #{settlementWay,jdbcType=INTEGER}, #{profit,jdbcType=VARCHAR}, 
+      #{payee,jdbcType=VARCHAR}, #{bankDeposit,jdbcType=VARCHAR}, #{bankAccount,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{lastTime,jdbcType=TIMESTAMP}, 
+      #{isDeleted,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.mk.ad.entity.AdminSspAccount">
+    insert into admin_ssp_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        id,
+      </if>
+      <if test="userId != null">
+        user_id,
+      </if>
+      <if test="companyName != null">
+        company_name,
+      </if>
+      <if test="status != null">
+        `status`,
+      </if>
+      <if test="companyType != null">
+        company_type,
+      </if>
+      <if test="licenseNumber != null">
+        license_number,
+      </if>
+      <if test="organizationCode != null">
+        organization_code,
+      </if>
+      <if test="shareholder != null">
+        shareholder,
+      </if>
+      <if test="licenseImage != null">
+        license_image,
+      </if>
+      <if test="dockingWay != null">
+        docking_way,
+      </if>
+      <if test="settlementWay != null">
+        settlement_way,
+      </if>
+      <if test="profit != null">
+        profit,
+      </if>
+      <if test="payee != null">
+        payee,
+      </if>
+      <if test="bankDeposit != null">
+        bank_deposit,
+      </if>
+      <if test="bankAccount != null">
+        bank_account,
+      </if>
+      <if test="createTime != null">
+        create_time,
+      </if>
+      <if test="updateTime != null">
+        update_time,
+      </if>
+      <if test="lastTime != null">
+        last_time,
+      </if>
+      <if test="isDeleted != null">
+        is_deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="companyType != null">
+        #{companyType,jdbcType=INTEGER},
+      </if>
+      <if test="licenseNumber != null">
+        #{licenseNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null">
+        #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholder != null">
+        #{shareholder,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseImage != null">
+        #{licenseImage,jdbcType=VARCHAR},
+      </if>
+      <if test="dockingWay != null">
+        #{dockingWay,jdbcType=INTEGER},
+      </if>
+      <if test="settlementWay != null">
+        #{settlementWay,jdbcType=INTEGER},
+      </if>
+      <if test="profit != null">
+        #{profit,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null">
+        #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="bankDeposit != null">
+        #{bankDeposit,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null">
+        #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTime != null">
+        #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mk.ad.entity.AdminSspAccount">
+    update admin_ssp_account
+    <set>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="companyName != null">
+        company_name = #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null">
+        `status` = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="companyType != null">
+        company_type = #{companyType,jdbcType=INTEGER},
+      </if>
+      <if test="licenseNumber != null">
+        license_number = #{licenseNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="organizationCode != null">
+        organization_code = #{organizationCode,jdbcType=VARCHAR},
+      </if>
+      <if test="shareholder != null">
+        shareholder = #{shareholder,jdbcType=VARCHAR},
+      </if>
+      <if test="licenseImage != null">
+        license_image = #{licenseImage,jdbcType=VARCHAR},
+      </if>
+      <if test="dockingWay != null">
+        docking_way = #{dockingWay,jdbcType=INTEGER},
+      </if>
+      <if test="settlementWay != null">
+        settlement_way = #{settlementWay,jdbcType=INTEGER},
+      </if>
+      <if test="profit != null">
+        profit = #{profit,jdbcType=VARCHAR},
+      </if>
+      <if test="payee != null">
+        payee = #{payee,jdbcType=VARCHAR},
+      </if>
+      <if test="bankDeposit != null">
+        bank_deposit = #{bankDeposit,jdbcType=VARCHAR},
+      </if>
+      <if test="bankAccount != null">
+        bank_account = #{bankAccount,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null">
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null">
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastTime != null">
+        last_time = #{lastTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="isDeleted != null">
+        is_deleted = #{isDeleted,jdbcType=INTEGER},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mk.ad.entity.AdminSspAccount">
+    update admin_ssp_account
+    set user_id = #{userId,jdbcType=VARCHAR},
+      company_name = #{companyName,jdbcType=VARCHAR},
+      `status` = #{status,jdbcType=INTEGER},
+      company_type = #{companyType,jdbcType=INTEGER},
+      license_number = #{licenseNumber,jdbcType=VARCHAR},
+      organization_code = #{organizationCode,jdbcType=VARCHAR},
+      shareholder = #{shareholder,jdbcType=VARCHAR},
+      license_image = #{licenseImage,jdbcType=VARCHAR},
+      docking_way = #{dockingWay,jdbcType=INTEGER},
+      settlement_way = #{settlementWay,jdbcType=INTEGER},
+      profit = #{profit,jdbcType=VARCHAR},
+      payee = #{payee,jdbcType=VARCHAR},
+      bank_deposit = #{bankDeposit,jdbcType=VARCHAR},
+      bank_account = #{bankAccount,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP},
+      last_time = #{lastTime,jdbcType=TIMESTAMP},
+      is_deleted = #{isDeleted,jdbcType=INTEGER}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
